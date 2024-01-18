@@ -17,23 +17,24 @@ pyautogui.PAUSE = 0.6 # how long the cursor stops at each coordinate
 cursor_speed = 0.2 # minimum is 0.1
 maximum_tasks = 100 # 100 is recommended
 
+def move_and_click(x, y, speed):
+    pyautogui.moveTo(x, y, speed)
+    pyautogui.click()
+
 
 # Game Time
 for i in range(task_number):
     if (task_number <= maximum_tasks):
         # 1: moves to 1st position and clicks
-        pyautogui.moveTo(position1_x, position1_y, cursor_speed)
-        pyautogui.click()
+        move_and_click(position1_x, position1_y, cursor_speed)
         print("1st Position")
 
         # 2: moves to 2nd position and clicks
-        pyautogui.moveTo(position2_x, position2_y, cursor_speed)
-        pyautogui.click()
+        move_and_click(position2_x, position2_y, cursor_speed)
         print("2nd Position")
 
         # 3: moves to 3rd position and clicks
-        pyautogui.moveTo(position3_x, position3_y, cursor_speed)
-        pyautogui.click()
+        move_and_click(position3_x, position3_y, cursor_speed)
         print("3rd Position")
     else:
         print("The maximum is 100")
